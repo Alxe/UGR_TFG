@@ -1,0 +1,39 @@
+\chapter{Conclusión y Trabajo Futuro}
+\label{ch:conclusion}
+
+Como se ha podido comprobar en el capítulo anterior, es muy viable la creación de un \textit{GeoPackage} con información topológica para realizar análisis de redes de carreteras u otro tipo. 
+
+Esto no quiere decir que sea la única ni mejor solución, si no una más, para ámbitos en los que otras soluciones más maduras no puedan implementarse.
+De igual manera, sigue siendo una posibilidad más que válida, con un nicho de mercado muy interesante como pueda ser el encaminamiento en local o el empaquetado y envío de datos geográficos enrutables.
+
+Así pues, a continuación se presentan dos secciones, una para desglosar qué objetivos se han cumplido y cómo se ha llevado esto a cabo, y otra para definir qué trabajo futuro podría realizarse sobre las conclusiones resultantes de este análisis.
+
+\section{Objetivos}
+
+Tanto el objetivo principal como los objetivos secundarios han sido completados a lo largo del desarrollo del \textsc{Trabajo de Fin de Grado}. Estos objetivos son listados en la \autoref{sec:objectives}.
+
+El objetivo principal se ha cumplido en toda la realización del \autoref{ch:geopackage_routing}, llevándose a cabo el análisis que se esperaba, obteniendo como conclusiones que sí es viable y las pautas a seguir para obtener un \textit{GeoPackage} enrutable, así como la estructura interna que podrían seguir los datos y algoritmos o extractos de código fuente para completar el proceso.
+
+Los objetivos secundarios se han completado de igual manera, en el proceso de documentación y realización previa a la redacción del documento, y esto se puede observar en el texto y herramientas desarrolladas, a disposición en este mismo documento o en los recursos adicionales presentados al final del mismo.
+
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item Se ha conocido la estructura de la base de datos de \textit{OpenStreetMap} a partir de la \textit{OsmWiki}\footnote{Véase \url{https://wiki.openstreetmap.org/wiki/}} y se ha aprendido cómo usar este a partir de la extracción de datos a partir de las herramientas del proyecto \textit{Osmium}.
+	
+	\item Se han identificado más tipos de contenedores de datos geográficos a través de recursos como sean \autocite{volaya} o \autocite{bolstad} y qué ventajas o desventajas presentan.
+	
+	\item Se ha encontrado herramientas como \textit{Osmium}, \textit{GeoPandas}, \textit{NetworkX}, entre otras, para la creación, manipulación y visualización de datos geográficos en un entorno general.
+	
+	\item Referente al punto anterior, muchas herramientas anteriormente citadas funcionan bajo un entorno \textsc{Python}, o tienen algún tipo de \textit{binding}, así pues se exhibe que dicho entorno es muy capaz a la hora de trabajar con información geográfica y análisis estadísticos o de otro tipo.
+\end{itemize}
+
+\section{Trabajo Futuro}
+El trabajo, una vez finalizado y con sus conclusiones presentadas, podría llegar a extenderse por varios caminos.
+
+Por un lado, se podría ver la posibilidad de la estandarización del modelo de representación de componentes topológicas, la propia red de conexiones entre nodos y los nodos en sí, como una extensión del estándar \textit{GeoPackage}. De esto llevarse a cabo, habría que producir un boceto técnico y presentarse al \textit{Open Geospatial Consortium} como una extensión de la comunidad\footnote{Véase \url{https://www.geopackage.org/extensions.html}}. Una vez esto, debería ser publicitado, implementado y revisado reiteradamente hasta que finalmente acepte la madurez necesaria para que se convierta en una extensión oficial.
+
+Por otro lado, cabe la posibilidad de extender la prueba de concepto desarrollada, añadiendo mayor cantidad de funcionalidades aunque dependa internamente de los mismos proyectos ya comentados, llámese \textit{NetworkX}, \textit{GeoPandas}, \textit{Osmium}, además de otros. El objetivo principal de este proyecto debería ser la accesibilidad a desarrolladores, así pues siendo un nexo de enlace entre las muchas herramientas ya comentadas.
+
+Otra posibilidad relacionada con la anterior, sería utilizar las herramientas de más bajo nivel, fuera del ecosistema \textsc{Python}, y buscar herramientas más portables a otras plataformas, como pueda ser basadas en tecnologías como \textsc{C++} o \textsc{Java}, idealmente con el mismo planteamiento que la propuesta anterior, la accesibilidad a otros desarrolladores.
+
+Este trabajo también puede, propiamente dicho, ayudarme a encontrar trabajo en el sector \textit{GIS}, donde podría plasmar todo el conocimiento adquirido y refinado en la elaboración del análisis y de la misma implementación.

@@ -1,0 +1,116 @@
+\documentclass[12pt,twoside,a4paper]{extreport}
+
+%% Font encoding, input and output
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+%% Spanish localization
+\usepackage[spanish]{babel}
+\usepackage{fvextra,csquotes}
+\selectlanguage{spanish}
+
+%% Multicaption support
+\usepackage{subcaption}
+\usepackage{multicol}
+
+%% Bibliography and References
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\usepackage{tocbibind}
+\usepackage{xpatch, hyperref}
+\addbibresource{ref.bib}
+\addbibresource{online.bib}
+
+% See: https://tex.stackexchange.com/a/6977
+\nocite{*} % Incluir todas las citas de las referencias
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+
+%% Graphic inclusion for figures
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{img/}}
+
+%% Support for code syntax
+\usepackage[newfloat,final]{minted}
+\usepackage{xcolor}
+\definecolor{mintedbg}{HTML}{f0f0f0}
+
+%% Fancy page headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.5pt}
+\pagestyle{fancy}
+\fancyhead[RE]{}
+\fancyhead[LO]{}
+\fancyfoot{}
+\fancyfoot[CE,CO]{ \thepage }
+
+\setlength{\parindent}{1.5em} % First line indentation
+\setlength{\parskip}{1.15ex} % Paragraph separation
+\renewcommand{\baselinestretch}{1.05}
+
+% See: https://tex.stackexchange.com/a/15122 (2017-06-06)
+\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
+
+% See: https://latex.org/forum/viewtopic.php?p=46700&sid=7208874293710d71bb7fbe9f5a462618#p46700
+\newenvironment{poliabstract}[1]
+{
+\renewcommand{\abstractname}{\Large #1}
+\begin{abstract}
+}{
+\end{abstract}
+}
+
+\newenvironment{chapsummary}{
+\begin{center}
+\begin{minipage}{0.825\textwidth}
+	\rule[-3.5ex]{\textwidth}{.1ex}
+	\paragraph*{Resumen}
+}{
+	\par
+	\rule[1.5ex]{\textwidth}{.1ex}
+	\end{minipage}
+\end{center}
+}
+
+\newcommand{\blankpage}{
+% Clear page
+\clearpage
+\thispagestyle{empty}
+\phantom{}
+\vfill
+}
+
+% See: https://tex.stackexchange.com/a/28518
+\addto\captionspanish{
+	\renewcommand{\contentsname}%
+	{Tabla de Contenidos}%
+}
+
+\SetupFloatingEnvironment{listing}{name=Listado, listname=Índice de listados}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\pagenumbering{gobble}
+\include{cover}
+\include{preambles}
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\tableofcontents
+\listoffigures
+\listoflistings
+\listoftables
+\include{chapters/00_intro}
+\include{chapters/01_geopackage}
+\include{chapters/02_routing}
+\include{chapters/03_geopackage_routing}
+\include{chapters/04_conclusion}
+\appendix
+\include{appendices/A_planification}
+\include{appendices/B_qgis_integration}
+\printbibliography[heading=bibintoc, title={Bibliografía y Referencias}, category=cited, nottype=online]
+\printbibliography[heading=subbibintoc, title={Lectura Adicional},  notcategory=cited, nottype=online]
+\printbibliography[heading=subbibintoc, title={Recursos Electrónicos}, type=online]
+
+\end{document}

@@ -1,0 +1,54 @@
+\chapter{Introducción}
+\label{ch:intro}
+	% Contexto de la SIG
+	Desde siempre me han fascinado los mapas y todo aquello representable en estos, lo cuál me llevó a cursar la asignatura de \textsc{Sistemas de Información Geográfica}, dónde realmente comprendí el inmenso potencial que la información geográfica tiene como representación visual de la realidad.
+	
+	Podemos decir que la información geográfica es aquella compuesta por datos geográficos y metadatos de estos así como datos no geográficos con los que guarda relación. Los datos geográficos suelen ser modelados como elementos \textit{vectoriales} (puntos, líneas o polígonos), o de tipo \textit{ráster}, en forma matricial (colores codificados en matrices \textit{RGBA} o \textit{CMYK}). Este trabajo se centra en el primer tipo, los datos vectoriales. 
+	
+	% Contexto del Análisis de Redes
+	Por otra parte, la primera vez que oí del concepto teórico de grafo fue en la asignatura de \textsc{Lógica y Métodos Discretos}, momento en el que pensé en su obvio uso en aplicaciones como \textit{Google Maps} para buscar una ruta entre dos o más puntos. Esto también me pareció algo muy interesante y con mucho potencial.
+	
+	En su forma más primitiva, un grafo consiste en un conjunto de \textit{nodos} y \textit{enlaces} (o conexiones) entre nodos, en nomenclatura del \textit{Análisis de Redes}. Cada nodo o enlace, a su vez, puede contener información adicional, como por ejemplo un \textit{coste} asociado. En el caso de que los enlaces tengan restricciones en la navegabilidad entre nodos, el grafo se denomina dirigido o digrafo. 
+	
+	% Conclusión de la Introducción
+	Este trabajo consiste en la unión del \textit{Análisis de Redes} con los \textit{Sistemas de Información Geográfica}. 
+	Concretamente, en la creación de una topología de red en el formato \textit{GeoPackage}, donde podremos aplicar algoritmos de encaminamiento, búsqueda de camino.
+	
+\section{Objetivos}
+	\label{sec:objectives}
+	Como objetivo principal se pretende llevar a cabo una prueba de concepto, un análisis del proceso a seguir para obtener una topología de red con datos geográficos almacenados en un archivo \textit{GeoPackage} sobre los que poder realizar encaminamiento.
+	
+	Además de este objetivo principal, se plantea una serie de objetivos secundarios a conseguir en la elaboración del trabajo, listados a continuación sin ningún orden en particular:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item Aprender cómo se estructura la base de datos de \textit{OpenStreetMap} y cómo usar este como origen de datos para posibles análisis de información de carácter geográfico.
+		\item Conocer en mayor profundidad qué tipos de contenedores de datos geográficos existen, aquellos que son usados en la industria y qué ventajas e inconvenientes pueden tener.
+		\item Descubrir nuevas herramientas para la creación, manipulación y visualización de datos geográficos en un entorno general.
+		\item Indagar en la manipulación de datos geográficos desde un entorno \textsc{Python}, así como aprender qué herramientas existen y son de uso frecuente en el ecosistema.
+	\end{itemize}
+	
+\section{Motivación}
+	Al cursar la asignatura de \textsc{Sistemas de Información Geográfica}, realicé un estudio y una presentación sobre \textit{GeoPackage} como tecnología. Al ver las características de este, pensé que era un estándar muy prometedor aunque joven, con poco más de cinco años desde su primera aparición. Al ser gestionado por del \textit{Open Geospatial Consortium}, goza de ciertas particularidades que la hace preferible a otras tecnologías, como puedan ser aquellas propias de \textit{ESRI}, una empresa muy conocida en el mundo de los sistemas de información geográfica.
+	
+	Después de, en la misma asignatura, al estudiar \textit{pgRouting} para realizar trazado de rutas entre varios puntos, pensé que había similaridad entre ambas tecnologías, solo que esta dependía de una base de datos relacional específica, \textit{PostgreSQL} con la extensión \textit{PostGIS}, y que \textit{GeoPackage} no tenía ningún soporte aparente.
+	
+	Como ventajas frente a \textit{pgRotuing}, realizar encaminamiento sobre \textit{GeoPackage} permitiría la búsqueda de caminos en dispositivos con capacidades reducidas o sin conexiones a alguna red. Las principales desventajas radican en la ausencia de una biblioteca especializada en esta tarea, aunque existe la posibilidad de usar un conjunto de herramientas para cada subtarea e integrarlas bajo un único software.
+	
+\section{Estructura del documento}	
+	El documento sigue una estructura en cinco capítulos, cada uno con un tema concreto a tratar. Los capítulos dos y tres contienen contexto relevante para comprender el desarrollo principal, el cuál se encuentra en el capítulo cuatro.
+	
+	Para comenzar, el \autoref{ch:intro}, este que está leyendo, sirve de \textit{\nameref{ch:intro}} y está dedicado a dar un desglose general de qué se puede encontrar en el documento, así como contextualizar el desarrollo de este con unos objetivos y qué ha motivado su desarrollo.
+	
+	A continuación, el \autoref{ch:geopackage} pretende dar a conocer de forma superficial qué son los \textit{\nameref{ch:geopackage}}, así como qué es la información geográfica, qué particularidades tienes y cómo se representa, y además los contenedores de datos donde podemos almacenarla.
+	
+	Después, el \autoref{ch:routing} trata sobre el \textit{\nameref{ch:routing}} desde un enfoque geográfico y topológico. Así pues, se explica superficialmente la teoría de grafos y la topología como tal, para finalmente explicar qué es el encaminamiento y qué relación guarda con la información geográfica
+	
+	Entonces, el \autoref{ch:geopackage_routing} contiene el groso del documento, objetivo principal del trabajo, y explica todo el proceso a realizar, el \textit{\nameref{ch:geopackage_routing}}, llámese generar una topología de red, almacenarla en un \textit{GeoPackage} y aplicar algoritmos de búsqueda de camino para obtener rutas entre dos o más puntos. Este capítulo es un híbrido teórico-práctico donde se explica, por apartados, primero el caso general y segundo un caso específico, como prueba de concepto. 
+	
+	Por último, el \autoref{ch:conclusion}, de nombre \textit{\nameref{ch:conclusion}}, trata de recopilar todas las conclusiones obtenidas en el desarrollo del documento, así como un desglose de cómo se han completado los objetivos y aquellos posibles trabajos futuros para llevar a cabo sobre este trabajo.
+	
+	Además, están presente dos apéndices que, aunque no estén contenidos en la temática principal, pueden considerarse relevantes.
+	
+	El \autoref{app:planification}, titulado \textit{\nameref{app:planification}} pretende contextualizar el desarrollo del trabajo, cómo se ha subdividido las tareas a realizar, así como las proporciones de tiempo dedicado. Este apéndice no podría haberse realizado de no haber cursado asignaturas como \textsc{Desarrollo y Gestión de Proyectos} o \textsc{Metodologías de Desarrollo Ágiles}.
+	
+	El \autoref{app:qgis_integration}, de carácter más técnico, explica como realizar una \textit{\nameref{app:qgis_integration}}, un software \textit{GIS}\footnote{\textit{GIS} es la abreviación preferida al hablar de \textit{Sistemas de la Información Geográfica}, del inglés \textit{Geographical Information Systems}}, del desarrollo principal para poder visualizar los caminos encontrados. Este apéndice contiene un \textit{script} de código que muestra la sencilla integración con \textsc{Python}, un lenguaje de programación muy utilizado en el desarrollo.

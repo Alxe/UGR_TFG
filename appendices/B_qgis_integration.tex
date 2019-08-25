@@ -1,0 +1,21 @@
+\chapter{Integración con \textit{QGIS}}
+\label{app:qgis_integration}
+
+\textit{QGIS}, una herramienta \textit{GIS} de software libre muy capaz y multiplataforma, cuenta tanto con un sistema de \textit{plugins} como con un entorno de consola, ambas con soporte para \textsc{Python} y su ecosistema. Por tanto, integrar la prueba de concepto con \textit{QGIS} es casi inmediato, ya que todo lo desarrollado usa \textsc{Python} como forma de implementación.
+
+En el siguiente ejemplo \autoref{lst:qgis_gpkgrouting}, se carga un fichero \textit{GeoPackage} ya enrutable, obtenido a través del proceso descrito en el capítulo \textsc{Encaminamiento con GeoPackage}, se genera un grafo y se realizan consultas de encaminamiento sobre este. Concretamente, el ejemplo mostrado es aquel que genera la imagen mostrada en \autoref{pathfinding_granada}.
+
+Por ser una mera prueba de concepto, se trata de un simple \textit{script} y no es un \textit{plugin} como tal, ya que existen otra herramientas que te ofrecen una herramienta similar dentro de \textit{QGIS}, como las extensiones de \textit{GRASS}.
+
+\begin{listing}[htbp]
+	\inputminted[autogobble,
+	frame=single,
+	python3,
+	linenos,
+	numbersep=6pt,
+	fontsize=\scriptsize,
+	bgcolor=mintedbg,
+	]{python}{qgis/qgis_gpkgrouting.py}
+	\caption[Integración con QGIS]{qgis\_gpkgrouting.py}
+	\label{lst:qgis_gpkgrouting}
+\end{listing}
